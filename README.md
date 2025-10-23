@@ -50,7 +50,7 @@ Access + Audit log middleware records request metadata:
 
 request ID, endpoint, latency, token count, model used, status, etc.
 
-Audit data is written to:
+### Audit data is written to :
 
 | Format | File Path | Description |
 |---------|------------|-------------|
@@ -59,7 +59,7 @@ Audit data is written to:
 | JSONL | `logs/audit.jsonl` | Append-only JSON Lines format. Each line is a full JSON object, perfect for real-time streaming, tailing, or ingestion by log processors. |
 
 
-Errors are caught globally.
+
 
 # ⚙️ Running Locally
 
