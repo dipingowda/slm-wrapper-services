@@ -41,24 +41,25 @@ curl -N -X POST http://127.0.0.1:8000/generate/stream \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Write 3 good backend habits.", "model": "phi3:mini"}'
 ```
-🧠 How It Works
+## 🧠 How It Works
 FastAPI receives your prompt → sends to local Ollama server (http://127.0.0.1:11434/api/generate)
 
 Ollama streams tokens back → StreamingResponse relays them chunk-by-chunk
 
 Access + Audit log middleware records request metadata:
 
-request ID, endpoint, latency, token count, model used, status
+request ID, endpoint, latency, token count, model used, status, etc.
 
 Audit data is written to:
 
-|logs/audit.jsonl (newline JSON)|
+| Format | File Path | Description |
+|---------|------------|-------------|
+| SQLite | `logs/audit.sqlite` | Structured, queryable log database for persistent storage and analytics. Ideal for dashboards or deeper inspection using SQL. |
+| CSV | `logs/audit.csv` | Lightweight, tabular log format. Easy to open in Excel or load into Pandas for quick debugging or data analysis. |
+| JSONL | `logs/audit.jsonl` | Append-only JSON Lines format. Each line is a full JSON object, perfect for real-time streaming, tailing, or ingestion by log processors. |
 
-|logs/audit.csv|
 
-|logs/audit.sqlite|
-
-Errors are caught globally → formatted JSON output.
+Errors are caught globally.
 
 # ⚙️ Running Locally
 
