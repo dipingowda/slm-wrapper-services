@@ -52,11 +52,11 @@ request ID, endpoint, latency, token count, model used, status
 
 Audit data is written to:
 
-logs/audit.jsonl (newline JSON)
+|logs/audit.jsonl (newline JSON)|
 
-logs/audit.csv
+|logs/audit.csv|
 
-logs/audit.sqlite
+|logs/audit.sqlite|
 
 Errors are caught globally → formatted JSON output.
 
@@ -89,13 +89,14 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 ### Use Postman/curl for endpoint testing
-Note: For stream use curl on the terminal because Postman is poor at handling stream responses
+### Note: For stream use curl on the terminal because Postman is poor at handling stream responses
 
-Format for curl requests:
+### Format for curl requests:
+```
 curl -N -X POST http://127.0.0.1:8000/generate/stream ^
   -H "Content-Type: application/json" ^
   -d "{\"prompt\":\"<prompt-here>\",\"model\":\"phi3:mini\"}"
-
+```
 ---
 
 ## 🧑‍💻 Contributing
