@@ -23,48 +23,6 @@ Built with **FastAPI**, connected to a local **Ollama** instance (e.g. `phi3:min
 | ⚙️ **Configurable** | All paths & toggles can move to `pydantic-settings` later |
 
 ---
-
-## 🧱 Project Structure
-
-slm-wrapper/
-│
-├── app/
-│ ├── init.py
-│ ├── main.py # FastAPI app entrypoint
-│ ├── routers/
-│ │ ├── generate.py # /generate + /generate/stream routes
-│ │ └── health.py # /healthz + /readyz
-│ ├── services/
-│ │ └── llm_service.py # core business logic (calls Ollama client)
-│ ├── adapters/
-│ │ ├── ollama_client.py # async HTTP client for Ollama
-│ │ └── cache.py # (optional) TTL cache utility
-│ ├── telemetry/
-│ │ └── audit.py # AuditLogger (JSONL, CSV, SQLite)
-│ ├── deps/
-│ │ ├── auth.py # optional API key middleware
-│ │ └── rate_limit.py # optional rate limiter
-│ ├── middleware/
-│ │ ├── request_id.py # adds X-Request-ID
-│ │ └── access_log.py # access log formatting
-│ ├── models/
-│ │ └── generate.py # Pydantic models for requests/responses
-│ ├── errors.py # centralized exception handling
-│ └── logging_setup.py # logger config
-│
-├── logs/
-│ ├── audit.jsonl # JSONL log of all requests
-│ ├── audit.csv # CSV summary log
-│ └── audit.sqlite # SQLite audit database
-│
-├── requirements.txt
-├── README.md
-└── main.py (runner)
-
-
-
----
-
 ## 🧩 API Endpoints
 
 | Endpoint | Method | Description |
