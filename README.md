@@ -1,7 +1,7 @@
 # 🧩 Local LLM API Server (FastAPI + Ollama)
 
 A lightweight, production-style backend for running **local LLMs** through a clean HTTP API.  
-Built with **FastAPI**, connected to a local **Ollama** instance (e.g. `phi3:mini`, `llama3`, etc.), and includes all core backend fundamentals:
+Built with open source technologies like **FastAPI**, connected to a local **Ollama** instance (e.g. `phi3:mini`, `llama3`, etc.), and includes all core backend fundamentals:
 - Async streaming responses
 - Structured logging & request IDs
 - Centralized error handling
@@ -52,7 +52,7 @@ FastAPI receives your prompt → sends to local Ollama server (http://127.0.0.1:
 
 Ollama streams tokens back → StreamingResponse relays them chunk-by-chunk
 
-Access + Audit log middlewares record request metadata:
+Access + Audit log middleware records request metadata:
 
 request ID, endpoint, latency, token count, model used, status
 
@@ -89,10 +89,42 @@ Run FastAPI
 
 uvicorn app.main:app --reload --port 8000
 
-Use postman/curl for endpoint testing
-Note : For stream use curl on terminal because postman is poor at handling stream responses
+Use Postman/curl for endpoint testing
+Note: For stream use curl on the terminal because Postman is poor at handling stream responses
 
 Format for curl requests:
 curl -N -X POST http://127.0.0.1:8000/generate/stream ^
   -H "Content-Type: application/json" ^
   -d "{\"prompt\":\"<prompt-here>\",\"model\":\"phi3:mini\"}"
+
+---
+
+## 🧑‍💻 Contributing
+Contributions, ideas, and feedback are welcome!
+
+If you’d like to:
+- improve the backend structure
+- add Docker / SSE / UI support
+- or test new Ollama models
+
+Feel free to fork the repo, open a PR, or reach out.
+
+You can also open issues for feature suggestions or bug reports.
+
+---
+
+## 🧩 Open Source Notice
+
+This project is built entirely using **open-source technologies** — it does not modify, redistribute, or claim ownership over them.
+
+Core dependencies:
+- [FastAPI](https://fastapi.tiangolo.com/) — web framework (MIT License)
+- [Uvicorn](https://www.uvicorn.org/) — ASGI server (BSD License)
+- [HTTPX](https://www.python-httpx.org/) — async HTTP client (BSD License)
+- [Pydantic](https://docs.pydantic.dev/) — data validation (MIT License)
+- [Ollama](https://ollama.ai) — local model runtime (MIT License)
+
+This repository simply integrates these tools into a cohesive, modular backend for local AI experimentation.  
+All credit for the underlying libraries and model runtimes belongs to their respective creators and maintainers.
+
+---
