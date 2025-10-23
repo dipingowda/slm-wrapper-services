@@ -19,8 +19,6 @@ Built with open source technologies like **FastAPI**, connected to a local **Oll
 | 📜 **Logging** | Request-ID based access logs, structured JSON logs |
 | 💾 **Audit Logging** | Stores every request (prompt length, duration, etc.) in JSONL, CSV, and SQLite |
 | 🧩 **Error Handling** | Centralized exceptions → clean JSON responses |
-| 🔐 **Auth (Optional)** | Header-based API key (toggle in config) |
-| ⚙️ **Configurable** | All paths & toggles can move to `pydantic-settings` later |
 
 ---
 ## 🧩 API Endpoints
@@ -28,8 +26,8 @@ Built with open source technologies like **FastAPI**, connected to a local **Oll
 | Endpoint | Method | Description |
 |-----------|---------|-------------|
 | `/` | GET | Root endpoint |
-| `/healthz` | GET | Liveness check |
-| `/readyz` | GET | Verifies Ollama availability |
+| `/health` | GET | Liveness check |
+| `/ready` | GET | Verifies Ollama availability |
 | `/generate` | POST | Generate full text (non-streaming) |
 | `/generate/stream` | POST | Stream generated tokens live |
 
