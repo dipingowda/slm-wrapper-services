@@ -60,30 +60,35 @@ logs/audit.sqlite
 
 Errors are caught globally → formatted JSON output.
 
-⚙️ Running Locally
-Install Ollama
+# ⚙️ Running Locally
 
-
+### Install Ollama
+```
 https://ollama.ai/download
-Start Ollama daemon (default port 11434):
-
-
+```
+### Start Ollama daemon (default port 11434):
+```
 ollama serve
-Pull a model (example):
+```
 
-
+### Pull a model (example):
+```
 ollama pull phi3:mini
-Create virtual env
+```
 
+### Create virtual env
+```
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-Run FastAPI
+```
 
-
+### Run FastAPI
+```
 uvicorn app.main:app --reload --port 8000
+```
 
-Use Postman/curl for endpoint testing
+### Use Postman/curl for endpoint testing
 Note: For stream use curl on the terminal because Postman is poor at handling stream responses
 
 Format for curl requests:
