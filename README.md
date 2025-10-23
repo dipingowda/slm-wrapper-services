@@ -38,9 +38,11 @@ Built with open source technologies like **FastAPI**, connected to a local **Oll
 ### 🔧 Example Request
 
 🌀 Streaming
+```
 curl -N -X POST http://127.0.0.1:8000/generate/stream \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Write 3 good backend habits.", "model": "phi3:mini"}'
+```
 🧠 How It Works
 FastAPI receives your prompt → sends to local Ollama server (http://127.0.0.1:11434/api/generate)
 
