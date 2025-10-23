@@ -4,7 +4,7 @@ A lightweight, production-style backend for running **local LLMs** through a cle
 Built with open source technologies like **FastAPI**, connected to a local **Ollama** instance (e.g. `phi3:mini`, `llama3`, etc.), and includes all core backend fundamentals:
 - Async streaming responses
 - Structured logging & request IDs
-- Centralized error handling
+- Centralised error handling
 - JSONL + CSV + SQLite audit logging
 - Modular project layout for easy scaling
 
@@ -37,13 +37,13 @@ Built with open source technologies like **FastAPI**, connected to a local **Oll
 
 ### 🔧 Example Request
 
-```
+---
 curl -X POST http://127.0.0.1:8000/generate \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Explain caching in 3 points.", "model": "phi3:mini"}'
 🌀 Streaming
+---
 
-Copy code
 curl -N -X POST http://127.0.0.1:8000/generate/stream \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Write 3 good backend habits.", "model": "phi3:mini"}'
